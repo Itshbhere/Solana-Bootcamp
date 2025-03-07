@@ -10,10 +10,12 @@ import * as path from "path";
 // Function to create a new Solana account
 async function createSolanaAccount() {
   // Step 1: Connect to the Solana network (Testnet in this case)
-  const connection = new Connection(clusterApiUrl("testnet"), "confirmed");
+  const connection = new Connection(clusterApiUrl("devnet"), "confirmed");
 
   // Step 2: Generate a new keypair (account)
-  const keypair = Keypair.generate();
+  const keypair = Keypair.fromSecretKey(
+    Uint8Array.from(JSON.parse(fs.readFileSync("solana-keypair.json", "utf-8")))
+  );
 
   console.log("New Solana Account Public Key:", keypair.publicKey.toString());
 

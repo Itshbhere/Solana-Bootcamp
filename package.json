@@ -1,5 +1,5 @@
 {
-  "types": "module",
+  "type": "module",
   "dependencies": {
     "@solana-developers/helpers": "^2.8.0",
     "@solana/web3.js": "^1.98.0",
